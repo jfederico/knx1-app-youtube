@@ -1,2 +1,28 @@
 <h1>Videos#index</h1>
 <p>Find me in app/views/videos/index.html.erb</p>
+
+<div class="container mt-5">
+    <h1>Search Elements</h1>
+
+    <!-- Search Form -->
+    <%= form_tag(videos_path, method: :get, class: "form-inline mt-3") do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search..." %>
+        <div class="input-group-append">
+          <%= submit_tag "Search", class: "btn btn-outline-primary" %>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- Display your videos below the search form -->
+    <% if @videos.present? %>
+      <% @videos.each do |video| %>
+        <!-- Display each video as needed -->
+      <% end %>
+    <% else %>
+      <p>No videos found.</p>
+    <% end %>
+
+</div>
+
+
